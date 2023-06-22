@@ -1,5 +1,5 @@
 import * as express from 'express';
-// import bodyParser from 'body-parser';
+import bodyParser from 'body-parser';
 // import morgan from 'morgan';
 // import cors from 'cors';
 // import compression from 'compression';
@@ -11,14 +11,13 @@ const app = express();
 
 app.set('port',  process.env.APP_PORT || 9000);
 app.set('host',  process.env.APP_HOST || 'localhost');
-
-//app.use(express.static(constant.distDir));
+app.use(express.static('dist'));
 
 // app.use(cors());
 // app.use(compression());
-// app.use(methodOverride());
-// app.use(bodyParser.json());
+// app.use(express.methodOverride());
+ app.use(express.json());
 // app.use(morgan('dev'));
- app.use(express.static('public'));
+app.use(express.static('public'));
 
 export default app;

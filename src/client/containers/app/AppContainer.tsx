@@ -7,4 +7,4 @@ const AppContainer = () => {
   return <MainRouter />;
 };
 
-export default hot(AppContainer) as any;
+export default (AppContainer) as any;

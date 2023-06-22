@@ -43,11 +43,11 @@ URL : http://localhost:9000/
 
 ### 4. Useful Link
 - Web framework for Node.js - [Express](http://expressjs.com/)
-- JavaScript ORM  for Node.js - [Bookshelf](http://bookshelfjs.org/)
+- JavaScript ORM  for Node.js - [Objection](http://objection.org/)
 - SQL Query Builder for Postgres, MSSQL, MySQL, MariaDB, SQLite3, and Oracle - [Knex](http://knexjs.org/)
 - JSON Web Tokens(jwt) - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 - Logging Library - [Winston](https://www.npmjs.com/package/winston)
-- Object schema validation  - [Joi](https://www.npmjs.com/package/joi)
+- Object schema validation  - [yup](https://www.npmjs.com/package/yup)
 - JavaScript library for building user interfaces - [React](https://facebook.github.io/react/)
 - Predictable state container - [Redux](http://redux.js.org/)
 - Redux Form - [Redux Form](http://redux-form.com/8.3.0/)

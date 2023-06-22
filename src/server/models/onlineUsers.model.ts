@@ -17,7 +17,7 @@ class OnlineUsers extends objectionModel implements IOnlineUser {
   /**
    * Get table name.
    */
-  get tableName() {
+  static get tableName() {
     return TABLE_NAME;
   }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { isEmail } from '../../utils/commonUtil'
 import renderText from '../common/form/renderText';
 
 interface ISignUpFormProps {
@@ -57,7 +58,7 @@ const validateSignUp = (values: any) => {
     }
   });
 
-  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  if (!isEmail(values.email)) {
     errors.email = '(Invalid email address.)';
   }
   return errors;

@@ -20,13 +20,23 @@
     "lint:client": "eslint client; exit 0",
     "lint:server": "eslint server; exit 0",
     "lint": "eslint client server; exit 0"
-
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zaherkassem/live-users-dashboard.git"
   },
-  "keywords": [],
+  "keywords": [
+    "node",
+    "es6",
+    "express",
+    "react",
+    "redux",
+    "react-router",
+    "webpack",
+    "typescript",
+    "knex",
+    "zaherkassem"
+  ],
   "author": "Zaher Kassem <zaher.k1981@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -34,7 +44,7 @@
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.2",
     "bcrypt": "^5.1.0",
-    "bootstrap": "^5.1.1",
+    "body-parser": "^1.20.2",
     "compression": "^1.7.4",
     "connected-react-router": "^6.9.3",
     "cors": "^2.8.5",
@@ -44,10 +54,14 @@
     "http-status-codes": "^2.2.0",
     "jsonwebtoken": "^9.0.0",
     "knex": "^2.4.2",
+    "lint-staged": "^10.5.4",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "node-sass": "^9.0.0",
     "objection": "^3.0.1",
+    "path": "^0.12.7",
+    "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^8.1.0",
@@ -64,16 +78,25 @@
     "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
+    "@hot-loader/react-dom": "^17.0.2",
     "@loadable/component": "^5.15.3",
     "@types/bcrypt": "^5.0.0",
+    "@types/compression": "^1.7.2",
+    "@types/cors": "^2.8.13",
     "@types/history": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/loadable__component": "^5.13.4",
+    "@types/method-override": "^0.0.32",
+    "@types/morgan": "^1.9.4",
     "@types/node": "^20.3.1",
     "@types/react-router-dom": "^5.3.3",
     "@types/redux-form": "^8.3.5",
     "@types/redux-logger": "^3.0.9",
     "axios": "^1.4.0",
+    "dotenv-webpack": "^8.0.1",
+    "eslint": "^8.43.0",
+    "eslint-plugin-react": "^7.32.2",
+    "express-static-gzip": "^2.1.7",
     "history": "^5.3.0",
     "jwt-decode": "^3.1.2",
     "nodemon": "^2.0.22",
@@ -83,8 +106,19 @@
     "redux-form": "^8.3.10",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.2",
+    "rimraf": "^5.0.1",
     "webpack-dev-middleware": "^6.1.1",
+    "webpack-dev-server": "^4.15.1",
     "webpack-hot-middleware": "^2.25.3",
     "yup": "^1.2.0"
+  },
+  "lint-staged": {
+    "./client/**/**/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --trailing-comma es6 --single-quote --write"
+    ]
+  },
+  "engines": {
+    "node": "^18.16.0",
+    "npm": "^9.5.1"
   }
 }

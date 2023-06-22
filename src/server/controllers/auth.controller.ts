@@ -1,8 +1,8 @@
 import HttpStatus from 'http-status-codes';
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import * as jwt from 'jsonwebtoken';
+import * as bcrypt from 'bcrypt';
 import User from '../models/user.model';
-import {IUser} from '../types/IUser'
+import { IUser } from '../types/IUser';
 import { Request, Response } from 'express';
 
 /**
@@ -14,18 +14,20 @@ import { Request, Response } from 'express';
  */
 export function login(req: Request, res: Response) {
   const { email, password } = req.body as any;
-  User.query().findOne({
-     email 
-  })
-    
-    .then((user:IUser | any ) => {
+
+  User.query()
+    .findOne({
+      email,
+    })
+
+    .then(async (user: IUser | any) => {
       if (user) {
         if (bcrypt.compareSync(password, user.password)) {
           const username = user.first_name + ' ' + user.last_name;
           const token = jwt.sign(
             {
               id: user.id,
-              email: email,
+              email: user.email,
               userName: username,
             },
             process.env.TOKEN_SECRET_KEY || 'eyJhbGciOiJIUzI1NiJ9'
@@ -34,7 +36,7 @@ export function login(req: Request, res: Response) {
           res.json({
             success: true,
             token,
-            email: email,
+            email: user.mail,
             userName: username,
           });
 

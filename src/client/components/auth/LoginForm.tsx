@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { isEmail } from '../../utils/commonUtil'
 import renderText from '../common/form/renderText';
 
 interface ILoginFormProps {
@@ -10,7 +11,7 @@ interface ILoginFormProps {
 
 const LoginForm = (props: ILoginFormProps) => {
   const { handleSubmit, onSubmit, errorMessage } = props;
-  
+
   return (
     <main className="main">
       <div className="container">
@@ -20,7 +21,7 @@ const LoginForm = (props: ILoginFormProps) => {
             <p className="text text-normal">Don't have an account? <span><a href="/signup" className="text text-links">Signup</a></span>
             </p>
           </div>
-          <form name="signin" className="form" method="post" onSubmit={handleSubmit(onSubmit) }>
+          <form name="signin" className="form" method="post" onSubmit={handleSubmit(onSubmit)}>
             <div className="input-control">
               <Field type="text" name="email" component={renderText} label="Username" placeholder="Username" />
             </div>
@@ -28,7 +29,7 @@ const LoginForm = (props: ILoginFormProps) => {
               <Field type="password" name="password" placeholder="Password" component={renderText} label="Password" />
             </div>
 
-            {errorMessage &&(
+            {errorMessage && (
               <div className="input-control">{errorMessage}</div>
             )}
             <div className="input-control">
@@ -51,7 +52,7 @@ const validateLogin = (values: any) => {
     }
   });
 
-  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  if (!isEmail(values.email)) {
     errors.email = '(Invalid email address.)';
   }
 

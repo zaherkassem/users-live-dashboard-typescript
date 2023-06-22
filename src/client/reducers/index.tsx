@@ -1,11 +1,15 @@
 import {combineReducers} from 'redux';
 import {connectRouter} from 'connected-react-router';
 import {reducer as formReducer} from 'redux-form';
+import { createBrowserHistory } from 'history';
 
 // Import custom components
 import authReducer from './authReducer';
 
-const appReducer = (history:any, action?: any) => combineReducers({
+// Create a browser history object
+const history = createBrowserHistory();
+
+const appReducer = (state: any, action: any) => combineReducers({
     router: connectRouter(history),
     form: formReducer,  // ← redux-form
     auth: authReducer,

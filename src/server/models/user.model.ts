@@ -17,7 +17,8 @@ class User extends objectionModel implements IUser {
     /**
      * Get table name.
      */
-    get tableName() {
+
+    static get tableName() {
         return TABLE_NAME;
     }
 
